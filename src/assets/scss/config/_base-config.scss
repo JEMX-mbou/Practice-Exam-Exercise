@@ -1,0 +1,62 @@
+// @use 'sass:map';
+@use '../utitilies/functions/config';
+
+@import url('https://fonts.googleapis.com/css2?family=Inconsolata:wght@300;600&family=Karla:ital,wght@0,700;1,700&display=swap');
+
+$base-config: (
+  'font-sizes': (
+    's': 16px,
+    'm': 17px,
+    'l': 18px,
+    'xl': 19px,
+    'xxl': 20px
+  ),
+  'headings': (
+    'h1': 3rem,
+    'h2': 2rem,
+    'h3': 1.8rem,
+    'h4': 1.5rem,
+    'h5': 1.2rem,
+    'h6': 1rem
+  ),
+  'line-height': 1.5em,
+  'font-families': (
+    'normal': (
+      'Inconsolata',
+      monospace
+    ),
+    'title': (
+      'Karla',
+      sans-serif
+    )
+  ),
+  'border': (
+    'thin': 1px,
+    'medium': 2px,
+    'thick': 4px
+  ),
+  'border-radius': (
+    'small': 0.2rem,
+    'normal': 0.3rem,
+    'large': 0.6rem
+  )
+);
+
+@function font-sizes($size: false) {
+  @return config.get($base-config, 'font-sizes', $size);
+}
+@function headings($size: false) {
+  @return config.get($base-config, 'headings', $size);
+}
+@function line-height() {
+  @return config.get($base-config, 'line-height');
+}
+@function font-family($name: false) {
+  @return config.get($base-config, 'font-families', $name);
+}
+@function border($thickness: false) {
+  @return config.get($base-config, 'border', $thickness);
+}
+@function border-radius($size: false) {
+  @return config.get($base-config, 'border-radius', $size);
+}
